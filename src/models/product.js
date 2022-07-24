@@ -19,7 +19,7 @@ const ProductSchema = new Schema({
     },
     catygoryId:{
         type:ObjectId,
-         ref:"catygoty"
+         ref:"Cateproduct"
     },
     slug:{
         type:String

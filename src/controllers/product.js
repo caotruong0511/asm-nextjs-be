@@ -15,7 +15,7 @@ req.body.slug=slug
 }
 export const list = async (req,res)=>{
     try {
-        const products= await Product.find()
+        const products= await Product.find().populate("catygoryId")
         res.json(products)
     } catch (error) {
         res.status(400).json({
