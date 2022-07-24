@@ -19,7 +19,7 @@ readdirSync("./src/routes").forEach((route) => {
 
 // connect db
 mongoose
-  .connect("mongodb://localhost:27017/asm-nextjs")
+  .connect(process.env.DB_URL)
   .then(() => console.log("Connect successfully"))
   .catch((error) => console.log(error));
 
