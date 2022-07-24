@@ -1,5 +1,4 @@
 import Slider from "../models/slider";
-
 export const list=async(req,res)=>{
 try {
     const slider = await Slider.find()
