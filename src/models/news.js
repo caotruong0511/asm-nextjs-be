@@ -1,11 +1,6 @@
 import mongoose, { Schema, ObjectId } from "mongoose";
 const NewsSchema = new Schema(
   {
-    name: {
-      type: String,
-      require: true,
-      minlength: 3,
-    },
     title: {
       type: String,
       require: true,
@@ -26,7 +21,7 @@ const NewsSchema = new Schema(
     },
     categoryId: {
       type: ObjectId,
-      ref: "CateNews",
+      ref: "CategoryNews",
     },
   },
   { timestamps: true },
