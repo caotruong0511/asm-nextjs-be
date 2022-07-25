@@ -1,32 +1,34 @@
 import mongoose, { Schema, ObjectId } from "mongoose";
-const ProductSchema = new Schema(
+const NewsSchema = new Schema(
   {
     name: {
       type: String,
       require: true,
       minlength: 3,
     },
-    image: {
+    title: {
       type: String,
       require: true,
     },
-    price: {
+    slug: {
       type: String,
-      require: true,
+    },
+    thumbnail: {
+      type: String,
     },
     desc: {
       type: String,
       require: true,
     },
-    catygoryId:{
-        type:ObjectId,
-         ref:"Cateproduct"
-    },
-    slug: {
+    content: {
       type: String,
+      require: true,
+    },
+    categoryId: {
+      type: ObjectId,
+      ref: "CateNews",
     },
   },
   { timestamps: true },
 );
-
-export default mongoose.model("Product", ProductSchema);
+export default mongoose.model("News", NewsSchema);
