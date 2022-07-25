@@ -6,7 +6,7 @@ try {
     res.json(cateproduct)
 } catch (error) {
      res.status(400).json({
-        message:"khong list duoc danh sach"
+        message:"Không hiển thị được danh sách"
      })
 }
 }
@@ -16,11 +16,11 @@ export const read=async(req,res)=>{
         const products= await Product.find({cateproduct}).exec()
         res.json({
             products,
-            cateproduct
+            cateproduct 
         })
     } catch (error) {
          res.status(400).json({
-            message:"khong list duoc danh sach"
+            message:"Không hiển thị được danh sách"
          })
     }
     }
@@ -30,7 +30,7 @@ export const read=async(req,res)=>{
             res.json(cateproduct)
         } catch (error) {
              res.status(400).json({
-                message:"khong list duoc danh sach"
+                message:"không xóa đưọc danh mục"
              })
         }
         }
@@ -40,7 +40,7 @@ export const read=async(req,res)=>{
             res.json(cateproducts)
         } catch (error) {
              res.status(400).json({
-                message:"khong them duoc du lieu"
+                message:"KHông thêm được danh mục"
              })
         }
         }
@@ -50,7 +50,7 @@ export const read=async(req,res)=>{
                 res.json(cateproduct)
             } catch (error) {
                  res.status(400).json({
-                    message:"khong list duoc danh sach"
+                    message:"không cập nhật được danh mục"
                  })
             }
             }
