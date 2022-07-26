@@ -2,7 +2,7 @@ import slugify from "slugify";
 import News from "../models/news";
 
 export const createNews = async (req, res) => {
-  const slug = slugify(req.body.name);
+  const slug = slugify(req.body.title);
   req.body.slug = slug;
   try {
     const news = await new News(req.body).save();
