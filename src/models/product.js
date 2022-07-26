@@ -18,9 +18,9 @@ const ProductSchema = new Schema(
       type: String,
       require: true,
     },
-    catygoryId:{
-        type:ObjectId,
-         ref:"Cateproduct"
+    catygoryId: {
+      type: ObjectId,
+      ref: "categoty",
     },
     slug: {
       type: String,
