@@ -48,7 +48,7 @@ export const removeNews = async (req, res) => {
 };
 
 export const updateNews = async (req, res) => {
-  const slug = slugify(req.body.name);
+  const slug = slugify(req.body.title);
   req.body.slug = slug;
   try {
     const news = await News.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).exec();
