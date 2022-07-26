@@ -20,7 +20,7 @@ export const listNews = async (req, res) => {
     res.json(news);
   } catch (error) {
     res.status(400).json({
-      message: "Không hiển thị",
+      message: "Không hiển thị news",
     });
   }
 };
