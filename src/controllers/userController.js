@@ -126,18 +126,3 @@ export const changePassword = async (req, res) => {
     });
   }
 };
-
-export const getComment = async (req, res) => {
-  try {
-    const user = await User.findOne({ _id: req.params.id }).exec();
-    const comment = await Comment.find({ userId: user._id }).select("-user").exec();
-    res.json({
-      user,
-      comment,
-    });
-  } catch (error) {
-    res.status(400).json({
-      message: "Không hiển thị được danh sách",
-    });
-  }
-};
