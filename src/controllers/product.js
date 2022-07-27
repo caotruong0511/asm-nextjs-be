@@ -9,17 +9,17 @@ req.body.slug=slug
     res.json(products)
  } catch (error) {
     res.status(400).json({
-    message:"khong them duoc du lieu"
+    message:"không thêm được sản phẩm"
     })
  }
 }
 export const list = async (req,res)=>{
     try {
-        const products= await Product.find()
+        const products= await Product.find().populate("catygoryId")
         res.json(products)
     } catch (error) {
         res.status(400).json({
-            message:"khong hien thi"
+            message:"không hiển thị được danh sách"
             })
     }
 }
@@ -29,7 +29,7 @@ export const read = async (req,res)=>{
         res.json(products)
     } catch (error) {
         res.status(400).json({
-            message:"khong hien thi"
+            message:"không hiển thị được danh sách"
             })
     }
 }
@@ -39,7 +39,7 @@ export const remove = async (req,res)=>{
         res.json(products)
     } catch (error) {
         res.status(400).json({
-            message:"khong xoa"
+            message:"không xóa được sản phẩm"
             })
     }
 }
@@ -51,7 +51,7 @@ req.body.slug=slug
         res.json(products)
     } catch (error) {
         res.status(400).json({
-            message:"khong cap nhat duoc du lieu"
+            message:"không cập nhật được sản phẩm"
             })
     }
 }

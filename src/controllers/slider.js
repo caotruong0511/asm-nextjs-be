@@ -5,7 +5,7 @@ try {
     res.json(slider)
 } catch (error) {
      res.status(400).json({
-        message:"khong list duoc danh sach"
+        message:"không hiển thị được slider"
      })
 }
 }
@@ -15,7 +15,7 @@ export const read=async(req,res)=>{
         res.json(slider)
     } catch (error) {
          res.status(400).json({
-            message:"khong list duoc danh sach"
+            message:"không hiển thị được slider"
          })
     }
     }
@@ -25,7 +25,7 @@ export const read=async(req,res)=>{
             res.json(slider)
         } catch (error) {
              res.status(400).json({
-                message:"khong list duoc danh sach"
+                message:"không xóa được slider"
              })
         }
         }
@@ -35,7 +35,7 @@ export const read=async(req,res)=>{
             res.json(slider)
         } catch (error) {
              res.status(400).json({
-                message:"khong them duoc du lieu"
+                message:"không thêm được slider"
              })
         }
         }
@@ -45,7 +45,7 @@ export const read=async(req,res)=>{
                 res.json(slider)
             } catch (error) {
                  res.status(400).json({
-                    message:"khong list duoc danh sach"
+                    message:"không cập nhật được slider"
                  })
             }
             }
