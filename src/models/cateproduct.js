@@ -10,8 +10,7 @@ const cateproductSchema = new Schema({
         require:true
     },
     slug:{
-        type:String,
-        require:true
+        type:String
     }
 },{timestamps:true})
 

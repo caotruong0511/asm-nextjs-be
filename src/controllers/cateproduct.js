@@ -1,3 +1,4 @@
+import slugify from "slugify"
 import Cateproduct from "../models/cateproduct"
 import Product from "../models/product"
 export const list=async(req,res)=>{
@@ -35,6 +36,8 @@ export const read=async(req,res)=>{
         }
         }
     export const create=async(req,res)=>{
+        const slug= slugify(req.body.name)
+        req.body.slug=slug
         try {
             const cateproducts = await new Cateproduct(req.body).save()
             res.json(cateproducts)
@@ -45,6 +48,8 @@ export const read=async(req,res)=>{
         }
         }
         export const update=async(req,res)=>{
+            const slug= slugify(req.body.name)
+            req.body.slug=slug
             try {
                 const cateproduct = await Cateproduct.findOneAndUpdate({_id:req.params.id},req.body,{new:true}).exec()
                 res.json(cateproduct)
