@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { create, getAll, get, remove, update, changePassword } from "../controllers/userController";
+import { create, getAll, getComment, get, remove, update, changePassword } from "../controllers/userController";
 import { isAdmin, isAuth, requireSignin } from "../middlewares/checkAuth";
 
 const router = Router();
 
 router.post("/users", requireSignin, isAuth, isAdmin, create);
-router.get("/users", requireSignin, isAuth, isAdmin, getAll);
+router.get("/users", getAll);
+router.get("/users/:id/comment", getComment);
 router.get("/users/:id", requireSignin, isAuth, isAdmin, get);
 router.put("/users/changepassword/:id", requireSignin, isAuth, changePassword);
 router.put("/users/:id", requireSignin, isAuth, isAdmin, update);
