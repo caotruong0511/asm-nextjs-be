@@ -19,8 +19,8 @@ const ProductSchema = new Schema(
       require: true,
     },
     catygoryId: {
-      type: ObjectId,
-      ref: "categoty",
+      type:ObjectId,
+     ref:"Cateproduct"
     },
     slug: {
       type: String,
