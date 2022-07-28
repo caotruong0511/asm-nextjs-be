@@ -10,12 +10,9 @@ const cateproductSchema = new Schema(
       type: String,
       require: true,
     },
-    slug: {
-      type: String,
-      require: true,
-    },
-  },
-  { timestamps: true },
-);
+    slug:{
+        type:String
+    }
+},{timestamps:true})
 
 export default mongoose.model("Cateproduct", cateproductSchema);
