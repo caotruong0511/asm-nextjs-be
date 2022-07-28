@@ -1,21 +1,24 @@
 import mongoose, { Schema } from "mongoose";
-const SliderSchema = new Schema(
+const contactSchema = new Schema(
   {
-    title: {
+    name: {
       type: String,
       require: true,
       minlength: 3,
     },
-    image: {
+    email: {
       type: String,
       require: true,
     },
-    url: {
+    phone: {
+      type: Number,
+      require: true,
+    },
+    message: {
       type: String,
       require: true,
     },
   },
   { timestamps: true },
 );
-
-export default mongoose.model("Slider", SliderSchema);
+export default mongoose.model("Contact", contactSchema);
