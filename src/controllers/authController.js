@@ -48,6 +48,7 @@ export const signin = async (req, res) => {
         email: user.email,
         _id: user._id,
         role: user.role,
+        avatar: user.avatar,
       },
     });
   } catch (error) {
