@@ -3,13 +3,14 @@ import jwt from "jsonwebtoken";
 
 export const signup = async (req, res) => {
   try {
-    const { name, email, avatar, role } = await new User(req.body).save();
+    const { name, email, avatar, role, phone } = await new User(req.body).save();
 
     res.status(201).json({
       name,
       email,
       avatar,
       role,
+      phone,
     });
   } catch (error) {
     res.status(400).json({
