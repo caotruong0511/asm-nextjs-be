@@ -1,5 +1,4 @@
 import User from "../models/userModel";
-import Comment from "../models/comment";
 import { createHmac } from "crypto";
 
 export const create = async (req, res) => {
@@ -8,12 +7,7 @@ export const create = async (req, res) => {
       _doc: { password, ...user },
     } = await new User(req.body).save();
 
-    res.status(201).json({
-      status: true,
-      payload: {
-        user,
-      },
-    });
+    res.status(201).json(user);
   } catch (error) {
     res.status(400).json({
       status: false,
@@ -26,12 +20,7 @@ export const getAll = async (req, res) => {
   try {
     const users = await User.find().exec();
 
-    res.json({
-      status: true,
-      payload: {
-        users,
-      },
-    });
+    res.json(users);
   } catch (error) {
     res.status(404).json({
       status: false,
@@ -45,12 +34,7 @@ export const get = async (req, res) => {
     const { id } = req.params;
     const user = await User.findOne({ _id: id }).exec();
 
-    res.json({
-      status: true,
-      payload: {
-        user,
-      },
-    });
+    res.json(user);
   } catch (error) {
     res.status(404).json({
       status: false,
@@ -64,12 +48,7 @@ export const remove = async (req, res) => {
     const { id } = req.params;
     const user = await User.findOneAndDelete({ _id: id }).exec();
 
-    res.json({
-      status: true,
-      payload: {
-        user,
-      },
-    });
+    res.json(user);
   } catch (error) {
     res.status(404).json({
       status: false,
@@ -84,12 +63,7 @@ export const update = async (req, res) => {
     const { password, ...userData } = req.body;
     const user = await User.findOneAndUpdate({ _id: id }, userData, { new: true }).exec();
 
-    res.json({
-      status: true,
-      payload: {
-        user,
-      },
-    });
+    res.json(user);
   } catch (error) {
     res.status(404).json({
       status: false,
