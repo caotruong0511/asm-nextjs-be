@@ -1,6 +1,7 @@
 import slugify from "slugify";
 import Product from "../models/product";
 import Comment from "../models/comment";
+
 export const create = async (req, res) => {
   const slug = slugify(req.body.name);
   req.body.slug = slug;
@@ -15,7 +16,7 @@ export const create = async (req, res) => {
 };
 export const list = async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await Product.find({}).populate("catygoryId").exec();
     res.json(products);
   } catch (error) {
     res.status(400).json({
