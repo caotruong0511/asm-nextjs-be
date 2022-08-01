@@ -49,6 +49,7 @@ export const signin = async (req, res) => {
         _id: user._id,
         role: user.role,
         avatar: user.avatar,
+        phone: user.phone,
       },
     });
   } catch (error) {
