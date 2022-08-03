@@ -36,6 +36,17 @@ export const readNews = async (req, res) => {
   }
 };
 
+export const getBySlug = async (req, res) => {
+  try {
+    const news = await News.findOne({ slug: req.params.slug }).exec();
+    res.json(news);
+  } catch (error) {
+    res.status(400).json({
+      message: "Không hiển thị",
+    });
+  }
+};
+
 export const removeNews = async (req, res) => {
   try {
     const news = await News.findOneAndDelete({ _id: req.params.id }).exec();
