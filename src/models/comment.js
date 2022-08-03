@@ -14,6 +14,20 @@ const commentSchema = new Schema(
       require: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
+
+commentSchema.pre(/^find/, function (next) {
+  this.populate("user");
+
+  next();
+});
+
+commentSchema.virtual("user", {
+  ref: "User",
+  foreignField: "_id",
+  localField: "userId",
+  justOne: true,
+});
+
 export default mongoose.model("Comment", commentSchema);
