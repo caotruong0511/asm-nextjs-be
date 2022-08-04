@@ -16,7 +16,7 @@ export const createNews = async (req, res) => {
 
 export const listNews = async (req, res) => {
   try {
-    const news = await News.find();
+    const news = await News.find().populate("categoryId");
     res.json(news);
   } catch (error) {
     res.status(400).json({
