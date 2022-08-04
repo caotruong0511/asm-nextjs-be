@@ -1,5 +1,6 @@
 import slugify from "slugify";
 import CategoryNews from "../models/categoryNews";
+import News from "../models/news";
 
 export const createCategoryNews = async (req, res) => {
   const slug = slugify(req.body.name);
@@ -25,8 +26,12 @@ export const listCategoryNews = async (req, res) => {
 };
 export const readCategoryNews = async (req, res) => {
   try {
-    const news = await CategoryNews.findOne({ _id: req.params.id }).exec();
-    res.json(news);
+    const catenew = await CategoryNews.findOne({ _id: req.params.id }).exec();
+    const news = await News.find({ categoryId: catenew._id }).exec();
+    res.json({
+      catenew,
+      news,
+    });
   } catch (error) {
     res.status(400).json({
       message: "Không tìm thấy danh mục",
