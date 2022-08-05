@@ -3,7 +3,10 @@ import Product from "../models/product";
 import Comment from "../models/comment";
 
 export const create = async (req, res) => {
-  const slug = slugify(req.body.name);
+  const slug = slugify(req.body.name, {
+    lower: true,
+    locale: "vi",
+  });
   req.body.slug = slug;
   try {
     const products = await new Product(req.body).save();
@@ -45,7 +48,10 @@ export const remove = async (req, res) => {
   }
 };
 export const update = async (req, res) => {
-  const slug = slugify(req.body.name);
+  const slug = slugify(req.body.name, {
+    lower: true,
+    locale: "vi",
+  });
   req.body.slug = slug;
   try {
     const products = await Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).exec();

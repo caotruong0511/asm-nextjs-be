@@ -2,7 +2,10 @@ import slugify from "slugify";
 import News from "../models/news";
 
 export const createNews = async (req, res) => {
-  const slug = slugify(req.body.title);
+  const slug = slugify(req.body.title, {
+    lower: true,
+    locale: "vi",
+  });
   req.body.slug = slug;
   try {
     const news = await new News(req.body).save();
@@ -59,7 +62,10 @@ export const removeNews = async (req, res) => {
 };
 
 export const updateNews = async (req, res) => {
-  const slug = slugify(req.body.title);
+  const slug = slugify(req.body.title, {
+    lower: true,
+    locale: "vi",
+  });
   req.body.slug = slug;
   try {
     const news = await News.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).exec();
